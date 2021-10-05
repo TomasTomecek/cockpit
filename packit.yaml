@@ -14,6 +14,8 @@ actions:
   create-archive:
     - ./autogen.sh --disable-polkit --disable-ssh --disable-pcp --with-systemdunitdir=/invalid CPPFLAGS=-Itools/mock-build-env PKG_CONFIG_PATH=tools/mock-build-env
     - make XZ_OPT=-0 dist
+    - du -sh .
+    - df -h .
     - sh -c 'echo cockpit-*.tar.xz'
 jobs:
   - job: tests
